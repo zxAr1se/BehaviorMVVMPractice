@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.MainActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:layout_behavior=".ui.behaviors.OverScrollBehavior">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:contentScrim="@color/color_article_bar"
+            app:expandedTitleGravity="bottom"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <ImageView
+                android:id="@+id/iv_product"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:contentDescription="@string/marvel_main_photo"
+                android:scaleType="centerCrop"
+                android:src="@drawable/marvel_logo_ab"
+                android:background="@color/color_gray_light"/>
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_margin"
+            android:text="@string/long_text_example"/>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <com.example.behaviormvvmpractice.ui.item.CustomFab
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tint="@color/color_gray_light"
+        app:layout_anchorGravity="bottom|center"
+        app:layout_anchor="@id/app_bar"
+        android:src="@drawable/ic_baseline_add_24"
+        app:backgroundTint="@color/color_article_bar"
+        app:tint="@color/color_accent_dark"
+        android:contentDescription="@string/add_button" />
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        app:layout_behavior=".ui.behaviors.HideFabBehavior"
+        android:id="@+id/charactersFab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:fabSize="mini"
+        app:layout_anchor="@id/fab"
+        app:layout_anchorGravity="bottom|center"
+        android:src="@drawable/ic_baseline_characters_24"
+        app:backgroundTint="@color/color_article_bar"
+        app:tint="@color/color_accent_dark"
+        android:contentDescription="@string/characters_fab"
+        />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        app:layout_behavior=".ui.behaviors.HideFabBehavior"
+        android:id="@+id/comicsFab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:fabSize="mini"
+        app:layout_anchor="@id/fab"
+        app:layout_anchorGravity="bottom|center"
+        android:src="@drawable/ic_baseline_comics_24"
+        app:backgroundTint="@color/color_article_bar"
+        app:tint="@color/color_accent_dark"
+        android:contentDescription="@string/comics_fab"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        app:layout_behavior=".ui.behaviors.HideFabBehavior"
+        android:id="@+id/eventsFab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:fabSize="mini"
+        app:layout_anchor="@id/fab"
+        app:layout_anchorGravity="bottom|center"
+        android:src="@drawable/ic_baseline_events_24"
+        app:backgroundTint="@color/color_article_bar"
+        app:tint="@color/color_accent_dark"
+        android:contentDescription="@string/events_fab" />
+
+    <com.example.behaviormvvmpractice.ui.item.ArticleSubmenu
+        android:id="@+id/submenu"
+        android:layout_width="200dp"
+        android:layout_height="96dp"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:elevation="8dp"
+        android:theme="@style/ArticleBarsTheme"
+        android:visibility="invisible"
+        app:layout_dodgeInsetEdges="bottom"
+        tools:visibility="visible"
+        />
+
+    <com.example.behaviormvvmpractice.ui.item.BottomBar
+        android:id="@+id/bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="56dp"
+        android:layout_gravity="bottom"
+        android:elevation="4dp"
+        android:theme="@style/ArticleBarsTheme"
+        app:layout_insetEdge="bottom">
+
+        <com.example.behaviormvvmpractice.ui.item.CheckableImageView
+            android:id="@+id/btn_night_mode"
+            style="@style/BottomBarIcon"
+            android:src="@drawable/ic_baseline_settings_24"
+            app:tint="@color/color_black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+    </com.example.behaviormvvmpractice.ui.item.BottomBar>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
